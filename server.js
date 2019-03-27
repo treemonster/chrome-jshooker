@@ -19,11 +19,7 @@ require('http').createServer((req, res)=>{
   })
   if(!fs.existsSync(f) || fs.readFileSync(f, 'utf-8')===d) {
     fs.writeFileSync(f, d)
-    res.writeHead(302, {
-      'Location': u,
-      'Access-Control-Allow-Origin': 'aaa',
-      'Access-Control-Allow-Credentials': 'true',
-    })
+    res.writeHead(302, {'Location': u})
     res.end()
   }else res.end(fs.readFileSync(f, 'utf-8'))
 }).listen(23456)
